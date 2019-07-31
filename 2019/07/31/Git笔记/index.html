@@ -26,7 +26,14 @@
 <meta property="og:image" content="http://yoursite.com/img/合并commit1-2.png">
 <meta property="og:image" content="http://yoursite.com/img/合并commit1-3.png">
 <meta property="og:image" content="http://yoursite.com/img/合并commit1-4.png">
-<meta property="og:updated_time" content="2019-07-31T10:48:29.538Z">
+<meta property="og:image" content="http://yoursite.com/img/合并commit2-1.png">
+<meta property="og:image" content="http://yoursite.com/img/合并commit2-2.png">
+<meta property="og:image" content="http://yoursite.com/img/合并commit2-3.png">
+<meta property="og:image" content="http://yoursite.com/img/合并commit2-4.png">
+<meta property="og:image" content="http://yoursite.com/img/合并commit2-5.png">
+<meta property="og:image" content="http://yoursite.com/img/合并commit2-6.png">
+<meta property="og:image" content="http://yoursite.com/img/合并commit2-7.png">
+<meta property="og:updated_time" content="2019-07-31T11:34:15.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git笔记">
 <meta name="twitter:description" content="一、修改commit的message1、修改最新commit的message1）查看提交历史1$ git log  2）执行以下命令进入编辑界面，编辑内容然后保存退出1$ git commit --amend  3) 再次查看提交历史发现message已经更新了 2、修改历史commit的message（此例中我们要修改第二个commit的message）1）查看提交历史1$ git log  2">
@@ -185,12 +192,25 @@
 <p>3) 进入编辑界面<br>将我们需要修改的message那行首部的pick改为r，然后保存退出<br><img src="/img/修改commit的message2-2.jpg" alt></p>
 <p>4）上一步保存退出后会进入另一个编辑界面：<br>在这个界面中编辑message内容，然后保存退出即可。<br><img src="/img/修改commit的message2-3.jpg" alt></p>
 <p>5) 再次查看提交历史，发现第二个commit的message已经更新了<br><img src="/img/修改commit的message2-4.jpg" alt></p>
-<h1 id="二、-合并多个commit"><a href="#二、-合并多个commit" class="headerlink" title="二、 合并多个commit"></a>二、 合并多个commit</h1><p>1）查看提交历史<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">log</span></div></pre></td></tr></table></figure></p>
+<h1 id="二、-合并多个commit"><a href="#二、-合并多个commit" class="headerlink" title="二、 合并多个commit"></a>二、 合并多个commit</h1><h2 id="1、将连续的几个commit合并成1个commit"><a href="#1、将连续的几个commit合并成1个commit" class="headerlink" title="1、将连续的几个commit合并成1个commit"></a>1、将连续的几个commit合并成1个commit</h2><p>1）查看提交历史<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">log</span></div></pre></td></tr></table></figure></p>
 <p><img src="/img/合并commit1-1.png" alt></p>
 <p>2) 找到需要合并的commit的前一个commit的commit id（此处我们要合并第2和第3个commit），执行rebase命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase -i e4302b82f310884ee281<span class="built_in">cd</span>050620572a134af71c</div></pre></td></tr></table></figure></p>
 <p>3）进入编辑界面，将第二行的pick改为s，保存退出<br><img src="/img/合并commit1-2.png" alt></p>
 <p>4）上一步保存退出后，进入另一个编辑界面，在这个界面中可以编辑message（也可以不编辑，看自己需求），然后保存退出。（我这边加了一行文字。）<br><img src="/img/合并commit1-3.png" alt></p>
 <p>5）再次查看提交历史，发现中间两个commit合并了，原来的4个commit变成了3个commit。<br><img src="/img/合并commit1-4.png" alt></p>
+<h2 id="2、将间隔的几个commit合并成1个commit"><a href="#2、将间隔的几个commit合并成1个commit" class="headerlink" title="2、将间隔的几个commit合并成1个commit"></a>2、将间隔的几个commit合并成1个commit</h2><p>1）查看提交历史<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">log</span></div></pre></td></tr></table></figure></p>
+<p>可以看到这边第一个和第三个commit都是操作readme文件的，所以我们可以把这两个commit合并。<br><img src="/img/合并commit2-1.png" alt></p>
+<p>2）因为第三个commit是最老的一个commit了，所以我们这里直接使用这个commit对应的commit id：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase -i e4302b82f310884ee281<span class="built_in">cd</span>050620572a134af71c</div></pre></td></tr></table></figure>
+<p>3）进入编辑界面，我们在第一行手动加入第三个commit的commit id，因为此处我们是要将第一个和第三commit合并，所以我们需要将第一行和第三行写在一起，然后保存退出：<br>编辑前：<br><img src="/img/合并commit2-2.png" alt><br>编辑后：<br><img src="/img/合并commit2-3.png" alt></p>
+<p>4）上一步退出后，终端中会出现提示信息，说我们的这次rebase可能存在冲突，这个时候我们自己查看下代码并解决冲突<br><img src="/img/合并commit2-4.png" alt></p>
+<p>5）解决完冲突，执行以下命令查看状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status</div></pre></td></tr></table></figure>
+<p>会出现一个提示，在我们解决完冲突后可以继续执行git rebase –continue<br><img src="/img/合并commit2-5.png" alt></p>
+<p>6）执行continue命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase --continue</div></pre></td></tr></table></figure>
+<p>7）进入编辑界面，可以编辑message信息（根据自己的需求），我这边删除了‘change readme’这行文字，然后保存退出。<br><img src="/img/合并commit2-6.png" alt></p>
+<p>8）查看提交历史，发现commit已经变了<br><img src="/img/合并commit2-7.png" alt></p>
 
       
 
