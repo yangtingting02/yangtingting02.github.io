@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://yoursite.com/img/合并commit2-5.png">
 <meta property="og:image" content="http://yoursite.com/img/合并commit2-6.png">
 <meta property="og:image" content="http://yoursite.com/img/合并commit2-7.png">
-<meta property="og:updated_time" content="2019-07-31T11:34:15.449Z">
+<meta property="og:updated_time" content="2019-07-31T12:01:44.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git笔记">
 <meta name="twitter:description" content="一、修改commit的message1、修改最新commit的message1）查看提交历史1$ git log  2）执行以下命令进入编辑界面，编辑内容然后保存退出1$ git commit --amend  3) 再次查看提交历史发现message已经更新了 2、修改历史commit的message（此例中我们要修改第二个commit的message）1）查看提交历史1$ git log  2">
@@ -211,6 +211,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase --continue</div></pre></td></tr></table></figure>
 <p>7）进入编辑界面，可以编辑message信息（根据自己的需求），我这边删除了‘change readme’这行文字，然后保存退出。<br><img src="/img/合并commit2-6.png" alt></p>
 <p>8）查看提交历史，发现commit已经变了<br><img src="/img/合并commit2-7.png" alt></p>
+<h1 id="3、清除最近几次的commit提交（即回退到某一个commit）"><a href="#3、清除最近几次的commit提交（即回退到某一个commit）" class="headerlink" title="3、清除最近几次的commit提交（即回退到某一个commit）"></a>3、清除最近几次的commit提交（即回退到某一个commit）</h1><p>使用命令：(注意要慎用)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard commitId(需要回退到的那个commit的commit id)</div></pre></td></tr></table></figure></p>
 
       
 
