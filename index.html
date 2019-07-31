@@ -171,6 +171,12 @@
 <p>3) 进入编辑界面<br>将我们需要修改的message那行首部的pick改为r，然后保存退出<br><img src="/img/修改commit的message2-2.jpg" alt></p>
 <p>4）上一步保存退出后会进入另一个编辑界面：<br>在这个界面中编辑message内容，然后保存退出即可。<br><img src="/img/修改commit的message2-3.jpg" alt></p>
 <p>5) 再次查看提交历史，发现第二个commit的message已经更新了<br><img src="/img/修改commit的message2-4.jpg" alt></p>
+<h1 id="二、-合并多个commit"><a href="#二、-合并多个commit" class="headerlink" title="二、 合并多个commit"></a>二、 合并多个commit</h1><p>1）查看提交历史<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">log</span></div></pre></td></tr></table></figure></p>
+<p><img src="/img/合并commit1-1.png" alt></p>
+<p>2) 找到需要合并的commit的前一个commit的commit id（此处我们要合并第2和第3个commit），执行rebase命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase -i e4302b82f310884ee281<span class="built_in">cd</span>050620572a134af71c</div></pre></td></tr></table></figure></p>
+<p>3）进入编辑界面，将第二行的pick改为s，保存退出<br><img src="/img/合并commit1-2.png" alt></p>
+<p>4）上一步保存退出后，进入另一个编辑界面，在这个界面中可以编辑message（也可以不编辑，看自己需求），然后保存退出。（我这边加了一行文字。）<br><img src="/img/合并commit1-3.png" alt></p>
+<p>5）再次查看提交历史，发现中间两个commit合并了，原来的4个commit变成了3个commit。<br><img src="/img/合并commit1-4.png" alt></p>
 
       
 
