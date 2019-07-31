@@ -140,6 +140,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Git笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/31/Git笔记/">Git笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/31/Git笔记/" class="archive-article-date">
+  	<time datetime="2019-07-31T09:47:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、修改commit的message"><a href="#一、修改commit的message" class="headerlink" title="一、修改commit的message"></a>一、修改commit的message</h1><h2 id="1、修改最新commit的message"><a href="#1、修改最新commit的message" class="headerlink" title="1、修改最新commit的message"></a>1、修改最新commit的message</h2><p>1）查看提交历史<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">log</span></div></pre></td></tr></table></figure></p>
+<p><img src="/img/修改commit的message1-1.jpg" alt></p>
+<p>2）执行以下命令进入编辑界面，编辑内容然后保存退出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit --amend</div></pre></td></tr></table></figure></p>
+<p><img src="/img/修改commit的message1-2.jpg" alt></p>
+<p>3) 再次查看提交历史发现message已经更新了<br><img src="/img/修改commit的message1-3.jpg" alt></p>
+<h2 id="2、修改历史commit的message（此例中我们要修改第二个commit的message）"><a href="#2、修改历史commit的message（此例中我们要修改第二个commit的message）" class="headerlink" title="2、修改历史commit的message（此例中我们要修改第二个commit的message）"></a>2、修改历史commit的message（此例中我们要修改第二个commit的message）</h2><p>1）查看提交历史<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">log</span></div></pre></td></tr></table></figure></p>
+<p><img src="/img/修改commit的message2-1.jpg" alt></p>
+<p>2）找到我们需要修改message的commit的前一个commit的commit id，然后执行下面命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase -i e4302b82f310884ee281<span class="built_in">cd</span>050620572a134af71c</div></pre></td></tr></table></figure></p>
+<p>3) 进入编辑界面<br>将我们需要修改的message那行首部的pick改为r，然后保存退出<br><img src="/img/修改commit的message2-2.jpg" alt></p>
+<p>4）上一步保存退出后会进入另一个编辑界面：<br>在这个界面中编辑message内容，然后保存退出即可。<br><img src="/img/修改commit的message2-3.jpg" alt></p>
+<p>5) 再次查看提交历史，发现第二个commit的message已经更新了<br><img src="/img/修改commit的message2-4.jpg" alt></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/31/Git笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-基于hexo搭建博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
