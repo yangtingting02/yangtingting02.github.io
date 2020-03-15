@@ -140,6 +140,227 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-a标签的target-blank" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/15/a标签的target-blank/">a标签的target=&#39;_blank&#39;</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/15/a标签的target-blank/" class="archive-article-date">
+  	<time datetime="2020-03-15T15:17:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>a标签默认在当期窗口跳转链接地址，有时我们的需求是要在新的窗口打开链接页面（比如在列表页面，需要点击查看几条数据的详情，并做对比），这时候就需要使用target=’_blank’</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">'https://github.com/yangtingting02'</span> <span class="attr">target</span>=<span class="string">'_blank'</span>&gt;</span>跳转<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>但是这样的操作存在安全问题。</p>
+<p>如果只是加上target=”_blank”，打开新窗口后，新页面可以通过window.opener获取到来源页面的window对象（即使两个页面是跨域的也是一样的），当我们修改window.opener.location的值指向另一个地址，原来的窗口就会变成我们新指定的地址页面。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>尽量不使用target=”_blank”，如果一定要用，加上rel=”noopener”或者rel=”noreferrer”。这样新窗口的window.openner就是null了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/15/a标签的target-blank/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JavaScript-错误处理机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/28/JavaScript-错误处理机制/">JavaScript 错误处理机制</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/28/JavaScript-错误处理机制/" class="archive-article-date">
+  	<time datetime="2020-02-28T00:25:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Error实例对象"><a href="#Error实例对象" class="headerlink" title="Error实例对象"></a>Error实例对象</h1><p>JavaScript 解析或运行时，一旦发生错误，引擎就会抛出一个错误对象。JavaScript 原生提供Error构造函数，所有抛出的错误都是这个构造函数的实例。</p>
+<p>Error构造函数接受一个参数，表示错误提示，可以从实例的message属性读到这个参数。抛出Error实例对象以后，整个程序就中断在发生错误的地方，不再往下执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> err = <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'出错了'</span>)</div><div class="line">err.message <span class="comment">// "出错了"</span></div></pre></td></tr></table></figure>
+<h1 id="原生错误类型"><a href="#原生错误类型" class="headerlink" title="原生错误类型"></a>原生错误类型</h1><p>下面的错误类型都是构造函数，都可以通过它们生成错误对象的实例</p>
+<h2 id="1、Error-对象"><a href="#1、Error-对象" class="headerlink" title="1、Error 对象"></a>1、Error 对象</h2><h2 id="2、SyntaxError-对象"><a href="#2、SyntaxError-对象" class="headerlink" title="2、SyntaxError 对象"></a>2、SyntaxError 对象</h2><p>SyntaxError对象是解析代码时发生的语法错误。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">RangeError</span>(<span class="string">'出错了，变量超出有效范围！'</span>);</div></pre></td></tr></table></figure>
+<h2 id="3、ReferenceError-对象"><a href="#3、ReferenceError-对象" class="headerlink" title="3、ReferenceError 对象"></a>3、ReferenceError 对象</h2><p>ReferenceError对象是引用一个不存在的变量时发生的错误。或将一个值分配给无法分配的对象，比如对函数的运行结果赋值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用一个不存在的变量count</span></div><div class="line">count</div><div class="line"><span class="comment">// Uncaught ReferenceError: count is not defined</span></div><div class="line"></div><div class="line"><span class="comment">// 等号左侧不是变量</span></div><div class="line"><span class="built_in">console</span>.log() = <span class="number">1</span></div><div class="line"><span class="comment">// Uncaught ReferenceError: Invalid left-hand side in assignment</span></div></pre></td></tr></table></figure>
+<h2 id="4、RangeError-对象"><a href="#4、RangeError-对象" class="headerlink" title="4、RangeError 对象"></a>4、RangeError 对象</h2><p>RangeError对象是一个值超出有效范围时发生的错误。</p>
+<p>主要有几种情况：<br>    . 数组长度为负数<br>    . Number对象的方法参数超出范围<br>    . 函数堆栈超过最大值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 数组长度不得为负数</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">-1</span>)</div><div class="line"><span class="comment">// Uncaught RangeError: Invalid array length</span></div></pre></td></tr></table></figure>
+<h2 id="5、TypeError-对象"><a href="#5、TypeError-对象" class="headerlink" title="5、TypeError 对象"></a>5、TypeError 对象</h2><p>TypeError对象是变量或参数不是预期类型时发生的错误。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="number">12</span></div><div class="line"><span class="comment">// Uncaught TypeError: 12 is not a constructor</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> test = <span class="string">'a'</span></div><div class="line">test()</div><div class="line"><span class="comment">// Uncaught TypeError: test is not a function</span></div></pre></td></tr></table></figure>
+<h2 id="6、URIError-对象"><a href="#6、URIError-对象" class="headerlink" title="6、URIError 对象"></a>6、URIError 对象</h2><p>URIError对象是 URI 相关函数的参数不正确时抛出的错误，主要涉及encodeURI()、decodeURI()、encodeURIComponent()、decodeURIComponent()、escape()和unescape()这六个函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">decodeURI</span>(<span class="string">'%2'</span>)</div><div class="line"><span class="comment">// URIError: URI malformed</span></div></pre></td></tr></table></figure>
+<h2 id="7、EvalError-对象"><a href="#7、EvalError-对象" class="headerlink" title="7、EvalError 对象"></a>7、EvalError 对象</h2><p>eval函数没有被正确执行时，会抛出EvalError错误。该错误类型已经不再使用了，只是为了保证与以前代码兼容，才继续保留。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/28/JavaScript-错误处理机制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-React-Hook" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/23/React-Hook/">React Hook</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/23/React-Hook/" class="archive-article-date">
+  	<time datetime="2020-02-23T14:03:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Hook是React 16.8的新特性。Hook是一个特殊的函数，它让我们在函数组件中可以使用state和生命周期等特性。</p>
+<h1 id="HOOK-API"><a href="#HOOK-API" class="headerlink" title="HOOK API"></a>HOOK API</h1><h2 id="useState"><a href="#useState" class="headerlink" title="useState"></a>useState</h2><p>useState()接收唯一一个参数作为初始state，参数可以是数字、字符串也可以是对象。这个方法调用后会返回一个数组，数组内的值分别是当前state以及更新 state 的函数。</p>
+<p>使用方法如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Example</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>You clicked &#123;count&#125; times<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;</div><div class="line">        Click me</div><div class="line">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意：当要在函数组件内使用多个state时，需要调用多次useState()<br>如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> [age, setAge] = useState(<span class="number">42</span>);</div><div class="line"><span class="keyword">const</span> [fruit, setFruit] = useState(<span class="string">'banana'</span>);</div></pre></td></tr></table></figure></p>
+<p>当然，我们也不必使用多个state变量，因为state变量可以很好的存储对象和数组，所以我们可以将相关的数据分为一组。跟this.setState()不同的是，这边更新state变量总是使用替换而不是合并。</p>
+<h2 id="useEffect"><a href="#useEffect" class="headerlink" title="useEffect"></a>useEffect</h2><p>执行副作用的钩子。我们可以把useEffect Hook看做React class中ComponentDidMount、ComponentDidUpdate、ComponentWillUnount这三个生命周期函数的组合。</p>
+<p>React组件中有两种常见副作用操作：<br>1、需要清除的effect<br>例如订阅外部数据源。这种情况下，清除工作是非常重要的，可以防止引起内存泄露！</p>
+<p>2、不需要清除的effect<br>有时候，我们只想在 React 更新 DOM 之后运行一些额外的代码。比如发送网络请求，手动变更 DOM，记录日志，这些都是常见的无需清除的操作。因为我们在执行完这些操作之后，就可以忽略他们了。</p>
+<p>该钩子接受两个参数，第一个参数为副作用需要执行的回调，生成的回调方法可以返回一个函数（将在组件卸载时运行）；第二个为该副作用监听的状态数组，当对应状态发生变动时会执行副作用，如果第二个参数为空（注意不是空数组[]），那么在每一个 State 变化时都会执行该副作用。</p>
+<p>如何使用useEffect钩子实现生命周期类型的功能：</p>
+<p>1、componentDidMount &amp;&amp; componentWillUnmount<br>  1）所有的副作用在组件挂载之后都会调用一次<br>  2）如果副作用返回函数，那么返回的函数将在卸载的时候运行<br>  3）如何让副作用只执行一次，借助第二个参数为[]数组即可实现</p>
+<p>示例代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'挂载'</span>)</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'卸载'</span>)</div><div class="line">  &#125;;</div><div class="line">&#125;, []);</div></pre></td></tr></table></figure></p>
+<p>2、componentDidUpdate<br>  该生命周期在每次页面更新后都会调用。<br>  1）当useEffect的第二个参数为空（即不传）时，每个state变化都会执行该副作用</p>
+<p>  示例代码如下：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'更新'</span>)</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/23/React-Hook/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Git笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -399,7 +620,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 半糖夏桃🍑
+    		&copy; 2020 半糖夏桃🍑
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

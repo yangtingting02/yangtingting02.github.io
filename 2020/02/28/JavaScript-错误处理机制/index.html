@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 半糖夏桃🍑</title>
+  <title>JavaScript 错误处理机制 | 半糖夏桃🍑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="半糖夏桃🍑">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Error实例对象JavaScript 解析或运行时，一旦发生错误，引擎就会抛出一个错误对象。JavaScript 原生提供Error构造函数，所有抛出的错误都是这个构造函数的实例。 Error构造函数接受一个参数，表示错误提示，可以从实例的message属性读到这个参数。抛出Error实例对象以后，整个程序就中断在发生错误的地方，不再往下执行。 12var err = new Error(&apos;出错">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 错误处理机制">
+<meta property="og:url" content="http://yoursite.com/2020/02/28/JavaScript-错误处理机制/index.html">
 <meta property="og:site_name" content="半糖夏桃🍑">
+<meta property="og:description" content="Error实例对象JavaScript 解析或运行时，一旦发生错误，引擎就会抛出一个错误对象。JavaScript 原生提供Error构造函数，所有抛出的错误都是这个构造函数的实例。 Error构造函数接受一个参数，表示错误提示，可以从实例的message属性读到这个参数。抛出Error实例对象以后，整个程序就中断在发生错误的地方，不再往下执行。 12var err = new Error(&apos;出错">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-03-15T15:08:56.569Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="半糖夏桃🍑">
+<meta name="twitter:title" content="JavaScript 错误处理机制">
+<meta name="twitter:description" content="Error实例对象JavaScript 解析或运行时，一旦发生错误，引擎就会抛出一个错误对象。JavaScript 原生提供Error构造函数，所有抛出的错误都是这个构造函数的实例。 Error构造函数接受一个参数，表示错误提示，可以从实例的message属性读到这个参数。抛出Error实例对象以后，整个程序就中断在发生错误的地方，不再往下执行。 12var err = new Error(&apos;出错">
   
     <link rel="alternative" href="/atom.xml" title="半糖夏桃🍑" type="application/atom+xml">
   
@@ -138,204 +142,180 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JavaScript-错误处理机制" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/15/a标签的target-blank/" class="archive-article-date">
-  	<time datetime="2020-03-15T15:17:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/15/a标签的target-blank/">a标签的target=&#39;_blank&#39;</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript 错误处理机制
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/28/JavaScript-错误处理机制/" class="archive-article-date">
+        
+        <a href="/2020/02/28/JavaScript-错误处理机制/" class="archive-article-date">
   	<time datetime="2020-02-28T00:25:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/28/JavaScript-错误处理机制/">JavaScript 错误处理机制</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Error实例对象"><a href="#Error实例对象" class="headerlink" title="Error实例对象"></a>Error实例对象</h1><p>JavaScript 解析或运行时，一旦发生错误，引擎就会抛出一个错误对象。JavaScript 原生提供Error构造函数，所有抛出的错误都是这个构造函数的实例。</p>
+<p>Error构造函数接受一个参数，表示错误提示，可以从实例的message属性读到这个参数。抛出Error实例对象以后，整个程序就中断在发生错误的地方，不再往下执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> err = <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'出错了'</span>)</div><div class="line">err.message <span class="comment">// "出错了"</span></div></pre></td></tr></table></figure>
+<h1 id="原生错误类型"><a href="#原生错误类型" class="headerlink" title="原生错误类型"></a>原生错误类型</h1><p>下面的错误类型都是构造函数，都可以通过它们生成错误对象的实例</p>
+<h2 id="1、Error-对象"><a href="#1、Error-对象" class="headerlink" title="1、Error 对象"></a>1、Error 对象</h2><h2 id="2、SyntaxError-对象"><a href="#2、SyntaxError-对象" class="headerlink" title="2、SyntaxError 对象"></a>2、SyntaxError 对象</h2><p>SyntaxError对象是解析代码时发生的语法错误。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">RangeError</span>(<span class="string">'出错了，变量超出有效范围！'</span>);</div></pre></td></tr></table></figure>
+<h2 id="3、ReferenceError-对象"><a href="#3、ReferenceError-对象" class="headerlink" title="3、ReferenceError 对象"></a>3、ReferenceError 对象</h2><p>ReferenceError对象是引用一个不存在的变量时发生的错误。或将一个值分配给无法分配的对象，比如对函数的运行结果赋值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用一个不存在的变量count</span></div><div class="line">count</div><div class="line"><span class="comment">// Uncaught ReferenceError: count is not defined</span></div><div class="line"></div><div class="line"><span class="comment">// 等号左侧不是变量</span></div><div class="line"><span class="built_in">console</span>.log() = <span class="number">1</span></div><div class="line"><span class="comment">// Uncaught ReferenceError: Invalid left-hand side in assignment</span></div></pre></td></tr></table></figure>
+<h2 id="4、RangeError-对象"><a href="#4、RangeError-对象" class="headerlink" title="4、RangeError 对象"></a>4、RangeError 对象</h2><p>RangeError对象是一个值超出有效范围时发生的错误。</p>
+<p>主要有几种情况：<br>    . 数组长度为负数<br>    . Number对象的方法参数超出范围<br>    . 函数堆栈超过最大值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 数组长度不得为负数</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">-1</span>)</div><div class="line"><span class="comment">// Uncaught RangeError: Invalid array length</span></div></pre></td></tr></table></figure>
+<h2 id="5、TypeError-对象"><a href="#5、TypeError-对象" class="headerlink" title="5、TypeError 对象"></a>5、TypeError 对象</h2><p>TypeError对象是变量或参数不是预期类型时发生的错误。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="number">12</span></div><div class="line"><span class="comment">// Uncaught TypeError: 12 is not a constructor</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> test = <span class="string">'a'</span></div><div class="line">test()</div><div class="line"><span class="comment">// Uncaught TypeError: test is not a function</span></div></pre></td></tr></table></figure>
+<h2 id="6、URIError-对象"><a href="#6、URIError-对象" class="headerlink" title="6、URIError 对象"></a>6、URIError 对象</h2><p>URIError对象是 URI 相关函数的参数不正确时抛出的错误，主要涉及encodeURI()、decodeURI()、encodeURIComponent()、decodeURIComponent()、escape()和unescape()这六个函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">decodeURI</span>(<span class="string">'%2'</span>)</div><div class="line"><span class="comment">// URIError: URI malformed</span></div></pre></td></tr></table></figure>
+<h2 id="7、EvalError-对象"><a href="#7、EvalError-对象" class="headerlink" title="7、EvalError 对象"></a>7、EvalError 对象</h2><p>eval函数没有被正确执行时，会抛出EvalError错误。该错误类型已经不再使用了，只是为了保证与以前代码兼容，才继续保留。</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/28/JavaScript-错误处理机制/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/23/React-Hook/" class="archive-article-date">
-  	<time datetime="2020-02-23T14:03:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-23</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/03/15/a标签的target-blank/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          a标签的target=&#39;_blank&#39;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/23/React-Hook/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React Hook</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/23/React-Hook/">React Hook</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/31/Git笔记/" class="archive-article-date">
-  	<time datetime="2019-07-31T09:47:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/31/Git笔记/">Git笔记</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/08/基于hexo搭建博客/" class="archive-article-date">
-  	<time datetime="2019-07-08T13:16:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/08/基于hexo搭建博客/">基于hexo搭建博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/03/markdown/" class="archive-article-date">
-  	<time datetime="2017-04-03T13:18:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/03/markdown/">Markdown学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -358,8 +338,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
